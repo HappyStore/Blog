@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Blog.DataAccess.Infrastructure
 {
-    public static class ServiceCollectionExtension
+    public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddBlogDatabase(
             this IServiceCollection services,
@@ -30,10 +30,10 @@ namespace Blog.DataAccess.Infrastructure
                     options.Password.RequireUppercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                 })
-                .AddUserStore<UserStore<
-                    User, Role, BlogDbContext, int, IdentityUserClaim<int>, UserRole,
-                    IdentityUserLogin<int>, IdentityUserToken<int>, IdentityRoleClaim<int>>>()
-                .AddRoleStore<RoleStore<Role, BlogDbContext, int, UserRole, IdentityRoleClaim<int>>>()
+                // .AddUserStore<UserStore<
+                //     User, Role, BlogDbContext, int, IdentityUserClaim<int>, UserRole,
+                //     IdentityUserLogin<int>, IdentityUserToken<int>, IdentityRoleClaim<int>>>()
+                // .AddRoleStore<RoleStore<Role, BlogDbContext, int, UserRole, IdentityRoleClaim<int>>>()
                 .AddEntityFrameworkStores<BlogDbContext>()
                 .AddDefaultTokenProviders();
 

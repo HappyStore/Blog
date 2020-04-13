@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Web.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
     public class RolesController : ControllerBase
     {
@@ -15,8 +16,8 @@ namespace Blog.Web.Controllers
         {
             _mediator = mediator;
         }
-
-        [HttpGet("roles")]
+        
+        [HttpGet]
         public async Task<ActionResult<GetRolesResult>> GetRoles(CancellationToken cancellationToken = default)
         {
             return await _mediator.Send(new GetRolesRequest(), cancellationToken);

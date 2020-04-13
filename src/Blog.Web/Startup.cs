@@ -34,7 +34,7 @@ namespace Blog.Web
                 })
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            
+
             services.AddControllers();
             services.AddBlogDatabase();
             services.AddMediator();
@@ -46,18 +46,14 @@ namespace Blog.Web
             app.Map("/api", api =>
             {
                 if (env.IsDevelopment())
-                {
                     api.UseDeveloperExceptionPage();
-                }
                 else
-                {
                     api.UseHttpsRedirection();
-                }
-                
+
                 app.UseRouting();
-                
+
                 app.UseCors();
-                
+
                 app.UseEndpoints(endpoints =>
                 {
                     // endpoints.MapControllerRoute(
@@ -69,4 +65,3 @@ namespace Blog.Web
         }
     }
 }
-

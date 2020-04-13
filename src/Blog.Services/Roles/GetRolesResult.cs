@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Blog.DataAccess.EntityModels.IdentityModels;
 
 namespace Blog.Services.Roles

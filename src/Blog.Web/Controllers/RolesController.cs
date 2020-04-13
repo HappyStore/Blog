@@ -10,12 +10,12 @@ namespace Blog.Web.Controllers
     public class RolesController : ControllerBase
     {
         private readonly IMediator _mediator;
-        
+
         public RolesController(IMediator mediator)
         {
             _mediator = mediator;
         }
-        
+
         [HttpGet("roles")]
         public async Task<ActionResult<GetRolesResult>> GetRoles(CancellationToken cancellationToken = default)
         {

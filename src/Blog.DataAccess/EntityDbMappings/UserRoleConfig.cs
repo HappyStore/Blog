@@ -8,7 +8,6 @@ namespace Blog.DataAccess.EntityDbMappings
     {
         public void Configure(EntityTypeBuilder<UserRole> builder)
         {
-            
         }
     }
 }

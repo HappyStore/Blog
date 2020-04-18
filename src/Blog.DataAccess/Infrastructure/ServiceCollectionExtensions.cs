@@ -21,7 +21,7 @@ namespace Blog.DataAccess.Infrastructure
                                    provider.GetService<IConfiguration>()
                                        .GetConnectionString("BlogDb"));
                 })
-                .AddIdentity<User, Role>(options =>
+                .AddIdentity<BlogUser, BlogRole>(options =>
                 {
                     options.Password.RequiredLength = 4;
                     options.Password.RequireDigit = false;

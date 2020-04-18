@@ -26,13 +26,13 @@ namespace Blog.Web.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Role>> GetRoleById(
+        public async Task<ActionResult<BlogRole>> GetRoleById(
             int id, 
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetRoleByIdRequest { RoleId = id }, cancellationToken);
 
-            return this.OkOrNotFound(result.Role);
+            return this.OkOrNotFound(result.BlogRole);
         }
     }
 }

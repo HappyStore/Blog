@@ -2,7 +2,8 @@
 
 namespace Blog.DataAccess.EntityModels.IdentityModels
 {
-    public class Role : IdentityRole<int>
+    public class BlogUser : IdentityUser<int>
     {
+        public string FullName { get; set; }
     }
 }

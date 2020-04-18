@@ -24,7 +24,7 @@ namespace Blog.Web.Tests.Controllers
         {
             _mediator
                 .Send(Arg.Any<GetRoleByIdRequest>())
-                .Returns(new GetRoleByIdResult { Role = null });
+                .Returns(new GetRoleByIdResult { BlogRole = null });
 
             var res = await _targetController.GetRoleById(1);
 

@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Blog.DataAccess.EntityDbMappings
 {
-    public class RoleConfig : IEntityTypeConfiguration<Role>
+    public class RoleConfig : IEntityTypeConfiguration<BlogRole>
     {
-        public void Configure(EntityTypeBuilder<Role> builder)
+        public void Configure(EntityTypeBuilder<BlogRole> builder)
         {
             builder.HasData(
-                new Role {Id = 1, Name = "admin"},
-                new Role {Id = 2, Name = "moderator"},
-                new Role {Id = 3, Name = "user"}
+                new BlogRole {Id = 1, Name = "admin"},
+                new BlogRole {Id = 2, Name = "moderator"},
+                new BlogRole {Id = 3, Name = "user"}
             );
         }
     }

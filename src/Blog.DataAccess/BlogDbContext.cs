@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blog.DataAccess
 {
-    internal class BlogDbContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>, UserRole,
+    internal class BlogDbContext : IdentityDbContext<BlogUser, BlogRole, int, IdentityUserClaim<int>, UserRole,
         IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public BlogDbContext(DbContextOptions options)

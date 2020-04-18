@@ -16,7 +16,7 @@ namespace Blog.Handlers.Roles
 
         public async Task<GetRoleByIdResult> Handle(GetRoleByIdRequest request, CancellationToken cancellationToken)
         {
-            var role = await _roleManager.GetById(request.RoleId);
+            var role = await _roleManager.GetByIdAsync(request.RoleId);
 
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -24,13 +24,13 @@ namespace Blog.Handlers.Roles
             {
                 return new GetRoleByIdResult
                 {
-                    Role = null
+                    BlogRole = null
                 };
             }
 
             return new GetRoleByIdResult
             {
-                Role = role
+                BlogRole = role
             };
         }
     }

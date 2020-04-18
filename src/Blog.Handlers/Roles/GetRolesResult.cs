@@ -5,6 +5,6 @@ namespace Blog.Handlers.Roles
 {
     public class GetRolesResult
     {
-        public IEnumerable<Role> Roles { get; set; }
+        public IEnumerable<BlogRole> Roles { get; set; }
     }
 }

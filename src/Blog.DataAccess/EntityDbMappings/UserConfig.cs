@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Blog.DataAccess.EntityDbMappings
 {
-    public class UserConfig : IEntityTypeConfiguration<User>
+    public class UserConfig : IEntityTypeConfiguration<BlogUser>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<BlogUser> builder)
         {
         }
     }

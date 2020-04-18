@@ -19,7 +19,9 @@ namespace Blog.Services.Roles
         public async Task<GetRolesResult> Handle(GetRolesRequest request, CancellationToken cancellationToken)
         {
             var roles = await _roleManager.Roles.ToListAsync(cancellationToken);
-
+            
+            cancellationToken.ThrowIfCancellationRequested();
+            
             return new GetRolesResult
             {
                 Roles = roles

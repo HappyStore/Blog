@@ -31,10 +31,15 @@ namespace Blog.Web
                             .AllowAnyMethod()
                             .AllowAnyOrigin();
                     });
-                })
-                .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                });
 
+            services
+                .AddMvc(options =>
+                {
+                    options.Filters.Add(new ProducesAttribute("application/json"));
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Latest);
+            
             services.AddControllers();
             services.AddBlogDatabase();
             services.AddMediator();

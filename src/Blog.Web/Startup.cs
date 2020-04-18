@@ -1,5 +1,6 @@
 using Blog.DataAccess.Infrastructure;
 using Blog.Handlers.Infrastructure;
+using Blog.Services.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -41,8 +42,10 @@ namespace Blog.Web
                 .SetCompatibilityVersion(CompatibilityVersion.Latest);
             
             services.AddControllers();
-            services.AddBlogDatabase();
             services.AddMediator();
+            services
+                .AddBlogDatabase()
+                .AddBlogServices();
         }
         
         

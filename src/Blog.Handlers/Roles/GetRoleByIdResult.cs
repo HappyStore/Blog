@@ -1,6 +1,6 @@
 ﻿using Blog.DataAccess.EntityModels.IdentityModels;
 
-namespace Blog.Services.Roles
+namespace Blog.Handlers.Roles
 {
     public class GetRoleByIdResult
     {

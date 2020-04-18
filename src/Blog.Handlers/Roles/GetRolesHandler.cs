@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog.Services.Roles
+namespace Blog.Handlers.Roles
 {
     public class GetRolesHandler : IRequestHandler<GetRolesRequest, GetRolesResult>
     {

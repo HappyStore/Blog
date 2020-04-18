@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Blog.Services.Roles
+namespace Blog.Handlers.Roles
 {
     public class GetRoleByIdRequest : IRequest<GetRoleByIdResult>
     {

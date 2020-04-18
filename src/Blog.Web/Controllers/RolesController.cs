@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Blog.DataAccess.EntityModels.IdentityModels;
-using Blog.Services.Roles;
+using Blog.Handlers.Roles;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

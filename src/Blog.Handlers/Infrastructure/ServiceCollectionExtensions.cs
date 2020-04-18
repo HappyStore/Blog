@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Blog.Services.Infrastructure
+namespace Blog.Handlers.Infrastructure
 {
     public static class ServiceCollectionExtensions
     {

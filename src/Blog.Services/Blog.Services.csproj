@@ -9,8 +9,4 @@
       <ProjectReference Include="..\Blog.DataAccess\Blog.DataAccess.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="User" />
-    </ItemGroup>
-
 </Project>

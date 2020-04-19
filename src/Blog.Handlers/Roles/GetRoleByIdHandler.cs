@@ -1,24 +1,25 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Blog.Services.RoleUserManager;
+using Blog.DataAccess.EntityModels.IdentityModels;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Handlers.Roles
 {
     public class GetRoleByIdHandler : IRequestHandler<GetRoleByIdRequest, GetRoleByIdResult>
     {
-        private readonly IBlogRoleManager _roleManager;
+        private readonly RoleManager<BlogRole> _roleManager;
 
-        public GetRoleByIdHandler(IBlogRoleManager roleManager)
+        public GetRoleByIdHandler(RoleManager<BlogRole> roleManager)
         {
             _roleManager = roleManager;
         }
 
         public async Task<GetRoleByIdResult> Handle(GetRoleByIdRequest request, CancellationToken cancellationToken)
         {
-            var role = await _roleManager.GetByIdAsync(request.RoleId);
-
-            cancellationToken.ThrowIfCancellationRequested();
+            var role = await _roleManager.Roles
+                .FirstOrDefaultAsync(r => r.Id == request.RoleId, cancellationToken);
 
             if (role == null)
             {

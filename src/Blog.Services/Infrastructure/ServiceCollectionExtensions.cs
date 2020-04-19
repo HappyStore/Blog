@@ -1,6 +1,4 @@
-﻿using Blog.Services.Role;
-using Blog.Services.RoleUserManager;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Blog.Services.Infrastructure
 {
@@ -8,8 +6,6 @@ namespace Blog.Services.Infrastructure
     {
         public static IServiceCollection AddBlogServices(this IServiceCollection services)
         {
-            services.AddTransient<IBlogRoleManager, BlogRoleManager>();
-
             return services;
         }
     }

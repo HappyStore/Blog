@@ -1,7 +1,9 @@
-﻿namespace Blog.Handlers.Users
+﻿using MediatR;
+
+namespace Blog.Handlers.Users
 {
-    public class DeleteUserRequest
+    public class DeleteUserRequest : IRequest<DeleteUserResult>
     {
-        
+        public int UserId { get; set; }
     }
 }

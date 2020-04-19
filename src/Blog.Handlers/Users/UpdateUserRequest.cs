@@ -1,8 +1,10 @@
-﻿namespace Blog.Handlers.Users
+﻿using Blog.DataAccess.EntityModels.IdentityModels;
+using MediatR;
+
+namespace Blog.Handlers.Users
 {
-    public class UpdateUserRequest
+    public class UpdateUserRequest : IRequest<UpdateUserResult>
     {
-        
-        
+        public BlogUser UserToUpdate { get; set; }
     }
 }

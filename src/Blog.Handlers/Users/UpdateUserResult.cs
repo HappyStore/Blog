@@ -2,6 +2,6 @@
 {
     public class UpdateUserResult
     {
-        
+        public string? ErrorMsg { get; set; }
     }
 }

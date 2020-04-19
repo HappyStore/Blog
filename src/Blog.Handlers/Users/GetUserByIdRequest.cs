@@ -1,7 +1,9 @@
-﻿namespace Blog.Handlers.Users
+﻿using MediatR;
+
+namespace Blog.Handlers.Users
 {
-    public class GetUserByIdRequest
+    public class GetUserByIdRequest : IRequest<GetUserByIdResult>
     {
-        
+        public int UserId { get; set; }
     }
 }

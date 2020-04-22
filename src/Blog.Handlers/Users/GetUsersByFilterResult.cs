@@ -6,6 +6,5 @@ namespace Blog.Handlers.Users
     public class GetUsersByFilterResult
     {
         public IEnumerable<BlogUser> Users { get; set; }
-        
     }
 }

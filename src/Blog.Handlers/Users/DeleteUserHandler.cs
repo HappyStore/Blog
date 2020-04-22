@@ -20,12 +20,10 @@ namespace Blog.Handlers.Users
             var result = await _userManager.DeleteAsync(new BlogUser {Id = request.UserId});
 
             if (!result.Succeeded)
-            {
                 return new DeleteUserResult
                 {
                     ErrorMsg = result.ToString()
                 };
-            }
 
             return new DeleteUserResult
             {

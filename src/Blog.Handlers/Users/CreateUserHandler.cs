@@ -20,13 +20,11 @@ namespace Blog.Handlers.Users
             var result = await _userManager.CreateAsync(request.UserToCreate);
 
             if (!result.Succeeded)
-            {
                 return new CreateUserResult
                 {
                     CreatedUser = null,
                     ErrorMsg = result.ToString()
                 };
-            }
 
             var createdUser = await _userManager.FindByNameAsync(request.UserToCreate.UserName);
 

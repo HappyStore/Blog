@@ -20,12 +20,10 @@ namespace Blog.Handlers.Users
             var result = await _userManager.UpdateAsync(request.UserToUpdate);
 
             if (!result.Succeeded)
-            {
                 return new UpdateUserResult
                 {
                     ErrorMsg = result.ToString()
                 };
-            }
 
             return new UpdateUserResult
             {

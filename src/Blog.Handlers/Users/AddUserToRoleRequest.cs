@@ -6,6 +6,6 @@ namespace Blog.Handlers.Users
     {
         public int UserId { get; set; }
 
-        public string RoleName { get; set; }
+        public string RoleName { get; set; } = null!;
     }
 }

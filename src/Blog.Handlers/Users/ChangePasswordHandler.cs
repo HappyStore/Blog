@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Blog.DataAccess.EntityModels.IdentityModels;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Handlers.Users
 {

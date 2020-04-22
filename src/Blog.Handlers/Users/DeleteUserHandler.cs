@@ -20,14 +20,12 @@ namespace Blog.Handlers.Users
             var user = await _userManager.FindByIdAsync(request.UserId.ToString());
 
             if (user == null)
-            {
                 return new DeleteUserResult
                 {
                     Status = DeleteUserStatus.UserNotFound,
                     StatusMessage = "User was not found"
                 };
-            }
-            
+
             var result = await _userManager.DeleteAsync(new BlogUser {Id = request.UserId});
 
             if (!result.Succeeded)

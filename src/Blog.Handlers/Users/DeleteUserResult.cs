@@ -2,6 +2,7 @@
 {
     public class DeleteUserResult
     {
-        public string? ErrorMsg { get; set; }
+        public DeleteUserStatus Status { get; set; }
+        public string? StatusMessage { get; set; }
     }
 }

@@ -17,17 +17,29 @@ namespace Blog.Handlers.Users
 
         public async Task<DeleteUserResult> Handle(DeleteUserRequest request, CancellationToken cancellationToken)
         {
+            var user = await _userManager.FindByIdAsync(request.UserId.ToString());
+
+            if (user == null)
+            {
+                return new DeleteUserResult
+                {
+                    Status = DeleteUserStatus.UserNotFound,
+                    StatusMessage = "User was not found"
+                };
+            }
+            
             var result = await _userManager.DeleteAsync(new BlogUser {Id = request.UserId});
 
             if (!result.Succeeded)
                 return new DeleteUserResult
                 {
-                    ErrorMsg = result.ToString()
+                    Status = DeleteUserStatus.DeleteUserFailed,
+                    StatusMessage = result.ToString()
                 };
 
             return new DeleteUserResult
             {
-                ErrorMsg = null
+                Status = DeleteUserStatus.Success
             };
         }
     }

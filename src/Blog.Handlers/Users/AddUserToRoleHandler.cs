@@ -18,8 +18,7 @@ namespace Blog.Handlers.Users
 
         public async Task<AddUserToRoleResult> Handle(AddUserToRoleRequest request, CancellationToken cancellationToken)
         {
-            var user = await _userManager.Users
-                .FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
+            var user = await _userManager.FindByIdAsync(request.UserId.ToString());
 
             if (user == null)
                 return new AddUserToRoleResult

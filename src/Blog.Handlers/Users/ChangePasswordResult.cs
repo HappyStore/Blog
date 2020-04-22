@@ -4,6 +4,6 @@
     {
         public ChangePasswordStatus Status { get; set; }
 
-        public string StatusMessage { get; set; }
+        public string? StatusMessage { get; set; }
     }
 }

@@ -5,6 +5,6 @@ namespace Blog.Handlers.Users
 {
     public class CreateUserRequest : IRequest<CreateUserResult>
     {
-        public BlogUser UserToCreate { get; set; }
+        public BlogUser UserToCreate { get; set; } = null!;
     }
 }

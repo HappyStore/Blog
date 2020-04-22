@@ -5,6 +5,6 @@ namespace Blog.Handlers.Users
 {
     public class UpdateUserRequest : IRequest<UpdateUserResult>
     {
-        public BlogUser UserToUpdate { get; set; }
+        public BlogUser UserToUpdate { get; set; } = null!;
     }
 }

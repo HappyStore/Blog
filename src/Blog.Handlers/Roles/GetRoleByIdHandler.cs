@@ -21,14 +21,6 @@ namespace Blog.Handlers.Roles
             var role = await _roleManager.Roles
                 .FirstOrDefaultAsync(r => r.Id == request.RoleId, cancellationToken);
 
-            if (role == null)
-            {
-                return new GetRoleByIdResult
-                {
-                    BlogRole = null
-                };
-            }
-
             return new GetRoleByIdResult
             {
                 BlogRole = role

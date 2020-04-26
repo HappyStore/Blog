@@ -9,21 +9,21 @@ using Xunit;
 
 namespace Blog.Handlers.Tests.Users
 {
-    public class ChangePasswordHandlerTests
+    public class DeleteUserHandlerTests
     {
-        public ChangePasswordHandlerTests()
+        public DeleteUserHandlerTests()
         {
             _userManagerMockWrapper = new UserManagerMockWrapper();
-            _targetHandler = new ChangePasswordHandler(_userManagerMockWrapper.UserManager.Object);
+            _targetHandler = new DeleteUserHandler(_userManagerMockWrapper.UserManager.Object);
         }
 
-        private readonly ChangePasswordHandler _targetHandler;
+        private readonly DeleteUserHandler _targetHandler;
         private readonly UserManagerMockWrapper _userManagerMockWrapper;
 
         private Mock<UserManager<BlogUser>> UserManagerMock => _userManagerMockWrapper.UserManager;
 
         [Fact]
-        public async Task Handle_ifChangePasswordIsNotSucceeded_returnsUserFailedResult()
+        public async Task Handle_ifDeleteIsNotSucceeded_returnsUserFailedResult()
         {
             var failedIdentityResult = IdentityResult.Failed(new IdentityError {Code = "1", Description = "failed"});
 
@@ -32,23 +32,18 @@ namespace Blog.Handlers.Tests.Users
                 .ReturnsAsync(new BlogUser {Id = 1});
 
             UserManagerMock
-                .Setup(f => f.ChangePasswordAsync(
-                    It.IsAny<BlogUser>(),
-                    It.IsAny<string>(),
-                    It.IsAny<string>())
-                )
+                .Setup(f => f.DeleteAsync(
+                    It.IsAny<BlogUser>()))
                 .ReturnsAsync(failedIdentityResult);
 
-            var request = new ChangePasswordRequest
+            var request = new DeleteUserRequest
             {
-                CurrentPassword = "anyString",
-                NewPassword = "anyString",
                 UserId = 1
             };
 
             var result = await _targetHandler.Handle(request, CancellationToken.None);
 
-            Assert.Equal(ChangePasswordStatus.PasswordChangeFailed, result.Status);
+            Assert.Equal(DeleteUserStatus.DeleteUserFailed, result.Status);
             Assert.NotNull(result.StatusMessage);
         }
 
@@ -59,11 +54,11 @@ namespace Blog.Handlers.Tests.Users
                 .Setup(f => f.FindByIdAsync(It.IsAny<string>()))
                 .Returns(Task.FromResult<BlogUser>(null));
 
-            var request = new ChangePasswordRequest();
+            var request = new DeleteUserRequest();
 
             var result = await _targetHandler.Handle(request, CancellationToken.None);
 
-            Assert.Equal(ChangePasswordStatus.UserNotFound, result.Status);
+            Assert.Equal(DeleteUserStatus.UserNotFound, result.Status);
         }
     }
 }

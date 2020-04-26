@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Handlers", "Blog.Handl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Handlers.Tests", "Blog.Handlers.Tests\Blog.Handlers.Tests.csproj", "{5DDD512E-8858-4542-B216-3AF3C92A1A67}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E0AD2A80-BDD9-4BB0-9A8D-EC52CD193D8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,5 +116,10 @@ Global
 		{5DDD512E-8858-4542-B216-3AF3C92A1A67}.Release|x64.Build.0 = Release|Any CPU
 		{5DDD512E-8858-4542-B216-3AF3C92A1A67}.Release|x86.ActiveCfg = Release|Any CPU
 		{5DDD512E-8858-4542-B216-3AF3C92A1A67}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DDD512E-8858-4542-B216-3AF3C92A1A67} = {E0AD2A80-BDD9-4BB0-9A8D-EC52CD193D8B}
+		{A1650BAB-2CCA-4387-AF95-FBE56F47766C} = {E0AD2A80-BDD9-4BB0-9A8D-EC52CD193D8B}
+		{022A5FA7-563C-4AB6-83DA-8CC042FC7B78} = {E0AD2A80-BDD9-4BB0-9A8D-EC52CD193D8B}
 	EndGlobalSection
 EndGlobal

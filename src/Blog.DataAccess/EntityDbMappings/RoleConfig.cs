@@ -11,8 +11,7 @@ namespace Blog.DataAccess.EntityDbMappings
             builder.HasData(
                 new BlogRole {Id = 1, Name = "superAdmin"},
                 new BlogRole {Id = 2, Name = "admin"},
-                new BlogRole {Id = 3, Name = "moderator"},
-                new BlogRole {Id = 4, Name = "user"}
+                new BlogRole {Id = 3, Name = "moderator"}
             );
         }
     }

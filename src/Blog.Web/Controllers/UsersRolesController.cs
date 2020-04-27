@@ -32,8 +32,8 @@ namespace Blog.Web.Controllers
             return this.ProduceEnumResult(
                 result.Status,
                 (AddUserToRoleStatus.Success, Ok),
-                (AddUserToRoleStatus.UserNotFound, () => (NotFound(result.StatusMessage))),
-                (AddUserToRoleStatus.AddToRoleFailed, () => (BadRequest(result.StatusMessage)))
+                (AddUserToRoleStatus.UserNotFound, () => NotFound(result.StatusMessage)),
+                (AddUserToRoleStatus.AddToRoleFailed, () => BadRequest(result.StatusMessage))
             );
         }
     }

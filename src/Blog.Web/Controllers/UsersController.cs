@@ -126,15 +126,15 @@ namespace Blog.Web.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> ChangePassword(
             [FromRoute] int id,
-            [FromBody] ChangePasswordDto changePasswordDto,
+            [FromBody] ChangePasswordPayload payload,
             CancellationToken cancellationToken = default
         )
         {
             var request = new ChangePasswordRequest
             {
                 UserId = id,
-                CurrentPassword = changePasswordDto.CurrentPassword,
-                NewPassword = changePasswordDto.NewPassword
+                CurrentPassword = payload.CurrentPassword,
+                NewPassword = payload.NewPassword
             };
 
             var result = await _mediator.Send(request, cancellationToken);

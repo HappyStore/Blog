@@ -1,6 +1,6 @@
 ﻿namespace Blog.Web.Models
 {
-    public class ChangePasswordDto
+    public class ChangePasswordPayload
     {
         public string NewPassword { get; set; }
 

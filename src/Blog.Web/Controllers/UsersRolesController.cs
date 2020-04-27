@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Blog.Handlers.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,11 +15,26 @@ namespace Blog.Web.Controllers
         {
             _mediator = mediator;
         }
-        
-        [HttpGet]
-        public async Task<IActionResult> AddUserToRole(int userId)
+
+        [HttpPut]
+        public async Task<IActionResult> AddUserToRole(
+            [FromRoute] int userId,
+            [FromBody] string roleName)
         {
-            return Ok($"Add user to role {userId}");
+            var request = new AddUserToRoleRequest
+            {
+                UserId = userId,
+                RoleName = roleName
+            };
+
+            var result = await _mediator.Send(request);
+
+            return this.ProduceEnumResult(
+                result.Status,
+                (AddUserToRoleStatus.Success, Ok),
+                (AddUserToRoleStatus.UserNotFound, () => (NotFound(result.StatusMessage))),
+                (AddUserToRoleStatus.AddToRoleFailed, () => (BadRequest(result.StatusMessage)))
+            );
         }
     }
 }

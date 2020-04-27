@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Moq;
 using Xunit;
 
-namespace Blog.Handlers.Tests.Users
+namespace Blog.Handlers.Tests.UsersRoles
 {
     public class AddUserToRoleHandlerTests
     {

@@ -1,10 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Blog.DataAccess.EntityModels.IdentityModels;
+using Blog.Handlers.Users;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Blog.Handlers.Users
+namespace Blog.Handlers.UsersRoles
 {
     public class AddUserToRoleHandler : IRequestHandler<AddUserToRoleRequest, AddUserToRoleResult>
     {

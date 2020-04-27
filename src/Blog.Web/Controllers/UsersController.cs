@@ -119,8 +119,7 @@ namespace Blog.Web.Controllers
             );
         }
 
-        [HttpPost("id:int")]
-        [Route("password")]
+        [HttpPut("id:int/password")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -35,20 +35,17 @@ namespace Blog.Web
                 });
 
             services
-                .AddMvc(options =>
-                {
-                    options.Filters.Add(new ProducesAttribute("application/json"));
-                })
+                .AddMvc(options => { options.Filters.Add(new ProducesAttribute("application/json")); })
                 .SetCompatibilityVersion(CompatibilityVersion.Latest);
-            
+
             services.AddControllers();
             services.AddMediator();
             services
                 .AddBlogDatabase()
                 .AddBlogServices();
         }
-        
-        
+
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.Map("/api", api =>
@@ -62,10 +59,7 @@ namespace Blog.Web
 
                 app.UseCors();
 
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
+                app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             });
         }
     }

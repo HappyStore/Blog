@@ -90,14 +90,11 @@ namespace Blog.Web.Controllers
 
             var result = await _mediator.Send(request);
 
-            if (result.ErrorMsg != null || result.CreatedUser == null)
-            {
-                return BadRequest(result.ErrorMsg);
-            }
+            if (result.ErrorMsg != null || result.CreatedUser == null) return BadRequest(result.ErrorMsg);
 
             return CreatedAtAction(
-                nameof(GetUserById), 
-                new { id = result.CreatedUser.Id }, 
+                nameof(GetUserById),
+                new {id = result.CreatedUser.Id},
                 result.CreatedUser
             );
         }
@@ -119,7 +116,7 @@ namespace Blog.Web.Controllers
                 (DeleteUserStatus.DeleteUserFailed, () => BadRequest(result.StatusMessage))
             );
         }
-        
+
         [HttpPost("id:int")]
         [Route("password")]
         [ProducesResponseType(StatusCodes.Status200OK)]

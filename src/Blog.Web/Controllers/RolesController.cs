@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Web.Controllers
 {
-    public class RolesController : ApiV1ControllerBase
+    [ApiController]
+    [Route("api/v1/controller")]
+    public class RolesController : ControllerBase
     {
         private readonly IMediator _mediator;
 

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Blog.DataAccess.EntityModels.IdentityModels;
 using Blog.Handlers.Tests.Helpers;
 using Blog.Handlers.Users;
+using Blog.Handlers.UsersRoles;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 using Xunit;

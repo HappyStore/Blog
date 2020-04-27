@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Web.Controllers
 {
-    public class UsersController : ApiV1ControllerBase
+    [ApiController]
+    [Route("api/v1/[controller]")]
+    public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
 

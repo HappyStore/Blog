@@ -48,18 +48,18 @@ namespace Blog.Web
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.Map("/api", api =>
+            if (env.IsDevelopment())
+                app.UseDeveloperExceptionPage();
+            else
+                app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseCors();
+
+            app.UseEndpoints(endpoints =>
             {
-                if (env.IsDevelopment())
-                    api.UseDeveloperExceptionPage();
-                else
-                    api.UseHttpsRedirection();
-
-                app.UseRouting();
-
-                app.UseCors();
-
-                app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+                endpoints.MapControllers();
             });
         }
     }

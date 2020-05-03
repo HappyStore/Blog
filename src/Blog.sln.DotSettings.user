@@ -1,6 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=39299380_002D3344_002D425d_002D80bf_002D974102c5a2ba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetRoleClaimsAsync_whenNoRoles_returnsEmptyArr" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::A1650BAB-2CCA-4387-AF95-FBE56F47766C::.NETCoreApp,Version=v3.1::Blog.Services.Tests.Authentication.JwtTokenServiceTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	
 	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d625e3e2_002Df68b_002D449d_002D91f2_002D0a374eb397c9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetRoleById_WhenRoleIsNull_ReturnsNotFound" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="D:\projects\project\src" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+	
+	</wpf:ResourceDictionary>

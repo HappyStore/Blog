@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Blog.DataAccess.EntityModels.IdentityModels;
-using Blog.Handlers.Tests.Helpers;
 using Blog.Handlers.Users;
 using Blog.Handlers.UsersRoles;
+using Blog.TestHelpers;
 using Microsoft.AspNetCore.Identity;
 using Moq;
 using Xunit;
@@ -15,13 +15,13 @@ namespace Blog.Handlers.Tests.UsersRoles
         public AddUserToRoleHandlerTests()
         {
             _userManagerMockWrapper = new UserManagerMockWrapper();
-            _targetHandler = new AddUserToRoleHandler(_userManagerMockWrapper.UserManager.Object);
+            _targetHandler = new AddUserToRoleHandler(_userManagerMockWrapper.UserManagerMock.Object);
         }
 
         private readonly AddUserToRoleHandler _targetHandler;
         private readonly UserManagerMockWrapper _userManagerMockWrapper;
 
-        private Mock<UserManager<BlogUser>> UserManagerMock => _userManagerMockWrapper.UserManager;
+        private Mock<UserManager<BlogUser>> UserManagerMock => _userManagerMockWrapper.UserManagerMock;
 
         [Fact]
         public async Task Handle_ifAddToRoleIsNotSucceeded_returnsAddToRoleFailed()

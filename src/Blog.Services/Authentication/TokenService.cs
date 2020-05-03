@@ -28,7 +28,7 @@ namespace Blog.Services.Authentication
             var basicClaims = await GetBasicClaimsAsync(user);
             var roleClaims = await GetRoleClaimsAsync(user);
             var claims = basicClaims.Union(roleClaims);
-            
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Issuer = _jwtTokenOptions.Issuer,
@@ -62,7 +62,7 @@ namespace Blog.Services.Authentication
         public async Task<IEnumerable<Claim>> GetRoleClaimsAsync(BlogUser user)
         { 
             return (await _userManager.GetRolesAsync(user))
-                .Select(role => new Claim(ClaimTypes.Role, role)) ?? new Claim[0];
+                ?.Select(role => new Claim(ClaimTypes.Role, role)) ?? new Claim[0];
         }
     }
 }

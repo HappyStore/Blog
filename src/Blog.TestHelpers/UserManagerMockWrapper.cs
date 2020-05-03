@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Moq;
 
-namespace Blog.Handlers.Tests.Helpers
+namespace Blog.TestHelpers
 {
     public class UserManagerMockWrapper
     {
@@ -10,7 +10,7 @@ namespace Blog.Handlers.Tests.Helpers
         {
             var userStoreMock = new Mock<IUserStore<BlogUser>>();
 
-            UserManager = new Mock<UserManager<BlogUser>>(
+            UserManagerMock = new Mock<UserManager<BlogUser>>(
                 userStoreMock.Object,
                 null,
                 null,
@@ -23,6 +23,6 @@ namespace Blog.Handlers.Tests.Helpers
             );
         }
 
-        public Mock<UserManager<BlogUser>> UserManager { get; set; }
+        public Mock<UserManager<BlogUser>> UserManagerMock { get; set; }
     }
 }

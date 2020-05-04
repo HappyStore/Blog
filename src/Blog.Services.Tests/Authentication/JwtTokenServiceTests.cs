@@ -25,7 +25,7 @@ namespace Blog.Services.Tests.Authentication
             _tokenOptions = new JwtTokenOptions
             {
                 Issuer = "testIssuer",
-                SigningSecret = Convert.ToBase64String(Encoding.UTF8.GetBytes("a random, long, sequence of characters that only the server knows")),
+                SigningSecret = "FtxaPO2rHxGLopDvIHNyQFIPkwzr4Vu1NIskmjzUAEAcyqSCWF+zApLy0DI2VAEPfbMXe191AZvmI65fwQ2grQ==",
                 ExpiresInMinutes = 10,
                 RefreshExpiresInMinutes = 5
             };

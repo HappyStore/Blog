@@ -3,12 +3,14 @@ using System.Threading.Tasks;
 using Blog.DataAccess.EntityModels.IdentityModels;
 using Blog.Handlers.Roles;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Web.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/v1/controller")]
     public class RolesController : ControllerBase
     {

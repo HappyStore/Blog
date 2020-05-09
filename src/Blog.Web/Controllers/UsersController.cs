@@ -3,14 +3,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Blog.DataAccess.EntityModels.IdentityModels;
 using Blog.Handlers.Users;
+using Blog.Web.Contracts.Users;
 using Blog.Web.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Web.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/v1/[controller]")]
     public class UsersController : ControllerBase
     {
@@ -144,6 +147,33 @@ namespace Blog.Web.Controllers
                 (ChangePasswordStatus.PasswordChangeFailed, () => BadRequest(result.StatusMessage)),
                 (ChangePasswordStatus.UserNotFound, () => NotFound(result.StatusMessage))
             );
+        }
+        
+        [HttpPost("login")]
+        [AllowAnonymous]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<LoginResultDto>> Login(
+            [FromBody] LoginRequestDto requestDto, CancellationToken cancellationToken = default)
+        {
+            var request = new LoginRequest
+            {
+                UserName = requestDto.UserName,
+                Password = requestDto.Password
+            };
+
+            var result = await _mediator.Send(request, cancellationToken);
+
+            if (result.Status != LoginStatus.Success)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new LoginResultDto
+            {
+                User = result.User,
+                AccessToken = result.AccessToken
+            });
         }
     }
 }

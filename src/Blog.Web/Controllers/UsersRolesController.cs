@@ -1,11 +1,13 @@
 ﻿using System.Threading.Tasks;
 using Blog.Handlers.Users;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Web.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/v1/users/{userId:int}/roles")]
     public class UsersRolesController : ControllerBase
     {

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Blog.Handlers\Blog.Handlers.csproj" />
+    <ProjectReference Include="..\Blog.Web.Contracts\Blog.Web.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
